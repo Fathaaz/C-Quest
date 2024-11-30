@@ -470,3 +470,55 @@ Fungsi printArray berfungsi untuk mencetak isi dari array yang akan berulang sel
 
 # Kesulitan
 Dalam mempelajari bahasa C saya memiliki kesulitan dalam bagaimana caranya saya harus tahu kapan menggunakan do while, karena do while melakukan loop terlebih dahulu baru mengecek kondisinya sehingga sangat berbeda dengan loop lain. 
+
+# Tugas 2
+```
+
+#include <stdio.h>
+#include <string.h>
+typedef struct{
+    char nama[20];
+    char nrp[15];
+    char jurusan[20];
+} Mahasiswa;
+
+Mahasiswa input(){
+    Mahasiswa mhs;
+    printf("Masukkan Nama : ");
+    scanf("%s", mhs.nama);
+    printf("Masukkan NRP : ");
+    scanf("%s", mhs.nrp);
+    printf("Masukkan Jurusan : ");
+    scanf("%s", mhs.jurusan);
+    printf ("\n");
+    return mhs;
+}
+
+void Output(Mahasiswa mhs){
+    printf("%s", mhs.nama);
+    printf("%s", mhs.nrp);
+    printf("%s", mhs.jurusan);
+
+}
+
+int main (){
+    Mahasiswa mhs[5];
+    for (int i = 0; i < 5; i++) {
+        mhs[i] = input();
+    }
+
+     for (int i = 0; i < 5; i++) {
+        for (int j = 1 + i; j < 5; j++) {
+        if (strcmp(mhs[i].jurusan, mhs[j].jurusan) == 0){
+            printf("\nTeman satu jurusan:\n");
+            printf("%s dan %s dari jurusan %s\n", mhs[i].nama, mhs[j].nama,mhs[i].jurusan);
+            }
+        }
+     }
+     return 0;
+}
+```
+Pertama didefinisikan tipe data baru Mahasiswa, kemudian buat fungsi untuk meminta input dari user. Selanjutnya terdapat fungsi void output untuk mencetak Nama, NRP dan Jurusan. Kemudian pada fungsi main dipanggil ulang fungsi input. Kemudian String dari jurusan setiap input dibandingkan. Jika terdapat input jurusan yang sama maka akan muncul output teman satu jurusan beserta nama 2 orang yang menjadi perbandingan. Berikut ini adalah contoh outputnya.
+
+![image](https://github.com/user-attachments/assets/9d09e47a-175c-4b1f-a1f5-f5e43ee56c6d)
+
